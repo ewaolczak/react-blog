@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import PostsContainer from '../../func/PostsContainer/PostsContainer';
+import PostsContainer from '../../features/PostsContainer/PostsContainer';
 
 const Home = () => {
   return (
