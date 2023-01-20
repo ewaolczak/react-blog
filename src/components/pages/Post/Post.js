@@ -18,12 +18,12 @@ const Post = () => {
               <Card.Title className='fs-1'>{post.title}</Card.Title>
               <div>
                 <Link to={`/post/edit/${post.postId}`}>
-                  <Button variant='outline-info' className='ms-1'>
+                  <Button variant='outline-info' className='ms-2'>
                     Edit
                   </Button>
                 </Link>
                 <Link to={`/post/${post.postId}`}>
-                  <Button variant='outline-danger' className='ms-1'>
+                  <Button variant='outline-danger' className='ms-2'>
                     Delete
                   </Button>
                 </Link>
