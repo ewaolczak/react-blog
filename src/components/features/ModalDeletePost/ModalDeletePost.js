@@ -1,14 +1,12 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-const ModalDeletePost = () => {
+const ModalDeletePost = (props) => {
   return (
-    <div
-      className='modal show'
-      style={{ display: 'block', position: 'initial' }}>
+    <Modal show={props.showModal} hide={props.closeModal}>
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Alert</Modal.Title>
+          <Modal.Title>Are you sure?</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -19,11 +17,15 @@ const ModalDeletePost = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant='secondary'>Cancel</Button>{' '}
-          <Button variant='danger'>Remove</Button>{' '}
+          <Button variant='secondary' onClick={props.closeModal}>
+            Cancel
+          </Button>{' '}
+          <Button variant='danger' onClick={props.removePost}>
+            Remove
+          </Button>{' '}
         </Modal.Footer>
       </Modal.Dialog>
-    </div>
+    </Modal>
   );
 };
 
