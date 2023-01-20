@@ -8,13 +8,11 @@ const PostsContainer = () => {
   const posts = useSelector(getAllPosts);
 
   return (
-    <Container className='d-flex justify-content-center flex-column'>
-      <Row>
-        {posts.map((post) => (
-          <PostSingle key={post.id} {...post} />
-        ))}
-      </Row>
-    </Container>
+    <Row>
+      {posts.map((post) => (
+        <PostSingle key={post.id} {...post} />
+      ))}
+    </Row>
   );
 };
 
