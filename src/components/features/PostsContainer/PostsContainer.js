@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getAllPosts } from '../../../redux/postsRedux';
-import { Container, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import PostSingle from '../../views/PostSingle/PostSingle';
 
 const PostsContainer = () => {
