@@ -5,12 +5,19 @@ import { Row } from 'react-bootstrap';
 import PostSingle from '../../features/PostSingle/PostSingle';
 
 const PostsContainer = () => {
-  const posts = useSelector(getAllPosts);
+  const postsList = useSelector(getAllPosts);
 
   return (
     <Row>
-      {posts.map((post) => (
-        <PostSingle key={post.id} {...post} />
+      {postsList.map((post) => (
+        <PostSingle key={post.id}
+        id={post.id}
+        title={post.title}
+        shortDescription={post.shortDescription}
+        content={post.content}
+        publishedDate={post.publishedDate}
+        author={post.author}
+        />
       ))}
     </Row>
   );

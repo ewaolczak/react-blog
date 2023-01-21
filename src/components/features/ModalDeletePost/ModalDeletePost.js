@@ -3,9 +3,9 @@ import { Button, Modal } from 'react-bootstrap';
 
 const ModalDeletePost = (props) => {
   return (
-    <Modal show={props.showModal} hide={props.closeModal}>
-      <Modal.Dialog>
-        <Modal.Header closeButton>
+    <Modal show={props.showModal} onHide={props.closeModal} >
+      <Modal.Dialog className="m-0">
+        <Modal.Header style={{border: 'none'}}>
           <Modal.Title>Are you sure?</Modal.Title>
         </Modal.Header>
 
@@ -16,7 +16,7 @@ const ModalDeletePost = (props) => {
           </p>
         </Modal.Body>
 
-        <Modal.Footer>
+        <Modal.Footer style={{border: 'none'}}>
           <Button variant='secondary' onClick={props.closeModal}>
             Cancel
           </Button>{' '}

@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { getPostById, removePost } from '../../../redux/postsRedux';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import ModalDeletePost from '../../features/ModalDeletePost/ModalDeletePost';
-import { useDispatch } from 'react-redux';
 
 const Post = () => {
-  const id = useParams();
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const post = useSelector((state) => getPostById(state, id));
 
   const [modal, setModal] = useState(false);
   const closeModal = () => setModal(false);
   const openModal = () => setModal(true);
 
-  const dispatch = useDispatch();
 
   const deletePost = (e) => {
-    e.prevenetDefaulet();
+    // e.preventDefault();
     dispatch(removePost(post.id));
+    closeModal();
   };
 
   if (modal) {
