@@ -30,7 +30,7 @@ const Post = () => {
     );
   }
 
-  if (!post) <Navigate to='/' />;
+  if (!post) return <Navigate to='/' />;
   else
     return (
       <section>

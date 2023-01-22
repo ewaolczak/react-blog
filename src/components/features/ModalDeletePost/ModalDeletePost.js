@@ -20,7 +20,7 @@ const ModalDeletePost = (post) => {
           <Button variant='secondary' onClick={post.closeModal}>
             Cancel
           </Button>{' '}
-          <Button variant='danger' onClick={post.removePost}>
+          <Button variant='danger' onClick={post.deletePost}>
             Remove
           </Button>{' '}
         </Modal.Footer>
