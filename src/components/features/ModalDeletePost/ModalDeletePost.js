@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-const ModalDeletePost = (props) => {
+const ModalDeletePost = (post) => {
   return (
-    <Modal show={props.showModal} onHide={props.closeModal} >
+    <Modal show={post.showModal} onHide={post.closeModal} >
       <Modal.Dialog className="m-0">
         <Modal.Header style={{border: 'none'}}>
           <Modal.Title>Are you sure?</Modal.Title>
@@ -17,10 +17,10 @@ const ModalDeletePost = (props) => {
         </Modal.Body>
 
         <Modal.Footer style={{border: 'none'}}>
-          <Button variant='secondary' onClick={props.closeModal}>
+          <Button variant='secondary' onClick={post.closeModal}>
             Cancel
           </Button>{' '}
-          <Button variant='danger' onClick={props.removePost}>
+          <Button variant='danger' onClick={post.removePost}>
             Remove
           </Button>{' '}
         </Modal.Footer>

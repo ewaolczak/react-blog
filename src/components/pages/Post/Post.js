@@ -14,9 +14,8 @@ const Post = () => {
   const closeModal = () => setModal(false);
   const openModal = () => setModal(true);
 
-
   const deletePost = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     dispatch(removePost(post.id));
     closeModal();
   };
@@ -31,9 +30,8 @@ const Post = () => {
     );
   }
 
-  if (!post) {
-    <Navigate to='/' />;
-  } else
+  if (!post) <Navigate to='/' />;
+  else
     return (
       <section>
         <Row xs={4} className='d-flex flex-wrap justify-content'>
