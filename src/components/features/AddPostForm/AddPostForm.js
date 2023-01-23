@@ -93,7 +93,7 @@ const AddPostForm = (props) => {
               onChange={(e) => setContent(e.target.value)}
             />
           </Form.Group>
-          <Button>Add post</Button>
+          <Button type='submit'>Add post</Button>
         </Col>
         <Col xs lg='2'></Col>
       </Row>
