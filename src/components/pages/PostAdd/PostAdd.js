@@ -3,8 +3,10 @@ import AddPostForm from '../../features/AddPostForm/AddPostForm';
 
 const PostAdd = () => {
   return (
-  <AddPostForm>
-  </AddPostForm>
-)};
+    <>
+      <AddPostForm />
+    </>
+  );
+};
 
 export default PostAdd;

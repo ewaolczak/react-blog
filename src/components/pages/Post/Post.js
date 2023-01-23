@@ -33,8 +33,8 @@ const Post = () => {
   if (!post) return <Navigate to='/' />;
   else
     return (
-      <section>xs={4} className='d-flex flex-wrap justify-content'
-        <Row >
+      <section>
+        <Row xs={4} className='d-flex flex-wrap justify-content'>
           <Col xs lg='3'></Col>
           <Col xs={12} lg='6'>
             <Card style={{ border: 'none' }}>

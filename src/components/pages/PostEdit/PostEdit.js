@@ -1,7 +1,12 @@
 import React from 'react';
+import EditPostForm from '../../features/EditPostForm/EditPostForm';
 
 const PostEdit = () => {
-  return <h1>Edit post page</h1>;
+  return (
+    <>
+      <EditPostForm />
+    </>
+  );
 };
 
 export default PostEdit;

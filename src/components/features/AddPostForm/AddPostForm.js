@@ -4,7 +4,7 @@ import { addPost } from '../../../redux/postsRedux';
 import { useNavigate } from 'react-router-dom';
 import PostForm from '../PostForm/PostForm';
 
-const AddPostForm = (props) => {
+const AddPostForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
