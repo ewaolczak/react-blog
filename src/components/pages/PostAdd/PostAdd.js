@@ -1,7 +1,10 @@
 import React from 'react';
+import AddPostForm from '../../features/AddPostForm/AddPostForm';
 
 const PostAdd = () => {
-  return <h1>Add post page</h1>;
-};
+  return (
+  <AddPostForm>
+  </AddPostForm>
+)};
 
 export default PostAdd;
