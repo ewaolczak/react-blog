@@ -70,7 +70,9 @@ const Post = () => {
                   Published:{' '}
                   <span className='fw-normal'>{post.publishedDate}</span>
                 </Card.Subtitle>
-                <Card.Text className='mt-3'>{post.content}</Card.Text>
+                <Card.Text className='mt-3'>
+                  <p dangerouslySetInnerHTML={{ __html: post.content }} />
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>
