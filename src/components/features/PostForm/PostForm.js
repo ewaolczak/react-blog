@@ -14,6 +14,9 @@ const PostForm = ({ action, actionText, ...props }) => {
     props.shortDescription || ''
   );
   const [content, setContent] = useState(props.content || '');
+  const [contentError, setContentError] = useState(false);
+  const [dateError, setDateError] = useState(false);
+
   const {
     register,
     handleSubmit: validate,
@@ -21,13 +24,16 @@ const PostForm = ({ action, actionText, ...props }) => {
   } = useForm();
 
   const handleSubmit = () => {
-    action({
-      title,
-      author,
-      publishedDate,
-      shortDescription,
-      content
-    });
+    setContentError(!content);
+    setDateError(!publishedDate);
+    if (content && publishedDate)
+      action({
+        title,
+        author,
+        publishedDate,
+        shortDescription,
+        content
+      });
   };
 
   return (
@@ -75,6 +81,11 @@ const PostForm = ({ action, actionText, ...props }) => {
               selected={publishedDate}
               onChange={(date) => setPublishedDate(date)}
             />
+            {dateError && (
+              <small className='d-block form-text text-danger mt-2'>
+                Date can't be empty
+              </small>
+            )}
           </Form.Group>
           <Form.Group className='mb-3' controlId='postShortDescription'>
             <Form.Label>Short Description</Form.Label>
@@ -98,6 +109,11 @@ const PostForm = ({ action, actionText, ...props }) => {
           <Form.Group className='mb-3' controlId='content'>
             <Form.Label>Main content</Form.Label>
             <ReactQuill theme='snow' value={content} onChange={setContent} />
+            {contentError && (
+              <small className='d-block form-text text-danger mt-2'>
+                Content can't be empty
+              </small>
+            )}
           </Form.Group>
           <Button type='submit'>{actionText}</Button>
         </Col>
