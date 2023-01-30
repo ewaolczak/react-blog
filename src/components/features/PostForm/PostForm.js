@@ -3,8 +3,8 @@ import { Row, Col, Form, Button } from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from 'react-datepicker';
-
 import 'react-datepicker/dist/react-datepicker.css';
+import { useForm } from 'react-hook-form';
 
 const PostForm = ({ action, actionText, ...props }) => {
   const [title, setTitle] = useState(props.title || '');
@@ -14,9 +14,13 @@ const PostForm = ({ action, actionText, ...props }) => {
     props.shortDescription || ''
   );
   const [content, setContent] = useState(props.content || '');
+  const {
+    register,
+    handleSubmit: validate,
+    formState: { errors }
+  } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     action({
       title,
       author,
@@ -27,7 +31,7 @@ const PostForm = ({ action, actionText, ...props }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={validate(handleSubmit)}>
       <Row xs={4} className='d-flex flex-wrap justify-content'>
         <Col xs lg='2'></Col>
         <Col xs={12} lg='8'>
@@ -35,22 +39,34 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Group className='mb-3' controlId='postTitle'>
               <Form.Label>Title</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter title'
+                {...register('title', { required: true, minLength: 4 })}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                type='text'
+                placeholder='Enter title'
               />
+              {errors.title && (
+                <small className='d-block form-text text-danger mt-2'>
+                  This field is required and must have more than 3 characters
+                </small>
+              )}
             </Form.Group>
           </Row>
           <Row md='2'>
             <Form.Group className='mb-3' controlId='postAuthor'>
               <Form.Label>Author</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter author'
+                {...register('author', { required: true, minLength: 4 })}
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
+                type='text'
+                placeholder='Enter author'
               />
+              {errors.author && (
+                <small className='d-block form-text text-danger mt-2'>
+                  This field is required and must have more than 3 characters
+                </small>
+              )}
             </Form.Group>
           </Row>
           <Form.Group className='mb-3' controlId='postPublishedDate'>
@@ -63,12 +79,21 @@ const PostForm = ({ action, actionText, ...props }) => {
           <Form.Group className='mb-3' controlId='postShortDescription'>
             <Form.Label>Short Description</Form.Label>
             <Form.Control
+              {...register('shortDescription', {
+                required: true,
+                minLength: 20
+              })}
               as='textarea'
               rows={3}
               placeholder='Leave a comment here'
               value={shortDescription}
               onChange={(e) => setShortDescription(e.target.value)}
             />
+            {errors.shortDescription && (
+              <small className='d-block form-text text-danger mt-2'>
+                This field is required and must have at least 20 characters
+              </small>
+            )}
           </Form.Group>
           <Form.Group className='mb-3' controlId='content'>
             <Form.Label>Main content</Form.Label>
