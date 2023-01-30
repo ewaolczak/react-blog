@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getAllPosts } from '../../../redux/postsRedux';
 import { Row } from 'react-bootstrap';
 import PostSingle from '../../features/PostSingle/PostSingle';
+import dateToStr from '../../../utils/dateToStr';
 
 const PostsContainer = () => {
   const postsList = useSelector(getAllPosts);
@@ -16,7 +17,7 @@ const PostsContainer = () => {
           title={post.title}
           shortDescription={post.shortDescription}
           content={post.content}
-          publishedDate={post.publishedDate}
+          publishedDate={dateToStr(post.publishedDate)}
           author={post.author}
         />
       ))}

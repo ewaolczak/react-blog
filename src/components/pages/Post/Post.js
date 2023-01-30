@@ -4,6 +4,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { getPostById, removePost } from '../../../redux/postsRedux';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import ModalDeletePost from '../../features/ModalDeletePost/ModalDeletePost';
+import dateToStr from '../../../utils/dateToStr';
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -67,8 +68,7 @@ const Post = () => {
                   Author: <span className='fw-normal'>{post.author}</span>
                 </Card.Subtitle>
                 <Card.Subtitle className='fw-bold mt-2'>
-                  Published:{' '}
-                  <span className='fw-normal'>{post.publishedDate}</span>
+                  Published: <span className='fw-normal'>{dateToStr(post.publishedDate)}</span>
                 </Card.Subtitle>
                 <Card.Text className='mt-3'>
                   <p dangerouslySetInnerHTML={{ __html: post.content }} />
