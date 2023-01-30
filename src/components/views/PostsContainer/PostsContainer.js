@@ -18,6 +18,7 @@ const PostsContainer = () => {
           shortDescription={post.shortDescription}
           content={post.content}
           publishedDate={dateToStr(post.publishedDate)}
+          category={post.category}
           author={post.author}
         />
       ))}

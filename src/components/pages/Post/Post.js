@@ -68,7 +68,13 @@ const Post = () => {
                   Author: <span className='fw-normal'>{post.author}</span>
                 </Card.Subtitle>
                 <Card.Subtitle className='fw-bold mt-2'>
-                  Published: <span className='fw-normal'>{dateToStr(post.publishedDate)}</span>
+                  Published:{' '}
+                  <span className='fw-normal'>
+                    {dateToStr(post.publishedDate)}
+                  </span>
+                </Card.Subtitle>
+                <Card.Subtitle className='fw-bold mt-2'>
+                  Category: <span className='fw-normal'>{post.category}</span>
                 </Card.Subtitle>
                 <Card.Text className='mt-3'>
                   <p dangerouslySetInnerHTML={{ __html: post.content }} />
