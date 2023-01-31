@@ -19,6 +19,7 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [content, setContent] = useState(props.content || '');
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
+  const [categoryError, setCategoryError] = useState(false);
 
   const categories = useSelector(getCategories);
 
@@ -31,7 +32,8 @@ const PostForm = ({ action, actionText, ...props }) => {
   const handleSubmit = () => {
     setContentError(!content);
     setDateError(!publishedDate);
-    if (content && publishedDate)
+    setCategoryError(!category);
+    if (content && publishedDate && category)
       action({
         title,
         author,
@@ -94,7 +96,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Group className='mt-3' controlId='postCategory'>
               <Form.Label>Category</Form.Label>
               <Form.Control
-                aria-label='Default select example'
+                // aria-label='Default select example'
                 {...register('category', { required: true })}
                 as='select'
                 onChange={(e) => setCategory(e.target.value)}
@@ -105,6 +107,11 @@ const PostForm = ({ action, actionText, ...props }) => {
                     {category}
                   </option>
                 ))}
+                {categoryError && (
+                  <small className='d-block form-text text-danger mt-2'>
+                    You have to select category
+                  </small>
+                )}
               </Form.Control>
             </Form.Group>
           </Form.Group>
@@ -129,7 +136,12 @@ const PostForm = ({ action, actionText, ...props }) => {
           </Form.Group>
           <Form.Group className='mb-3' controlId='content'>
             <Form.Label>Main content</Form.Label>
-            <ReactQuill theme='snow' value={content} onChange={setContent} />
+            <ReactQuill
+              theme='snow'
+              value={content}
+              placeholder='Write your text here'
+              onChange={setContent}
+            />
             {contentError && (
               <small className='d-block form-text text-danger mt-2'>
                 Content can't be empty

@@ -17,6 +17,7 @@ const CategoryPosts = () => {
       <Row>
         {postsByCategory.map((post) => (
           <PostSingle
+            key={post.category}
             title={post.title}
             description={post.shortDescription}
             content={post.content}
