@@ -39,6 +39,7 @@ const PostForm = ({ action, actionText, ...props }) => {
         author,
         publishedDate,
         shortDescription,
+        category,
         content
       });
   };
