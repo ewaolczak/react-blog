@@ -100,9 +100,9 @@ const PostForm = ({ action, actionText, ...props }) => {
               // aria-label='Default select example'
               {...register('category', { required: true })}
               as='select'
-              onChange={(e) => setCategory(e.target.value)}
-              value={category ? category : 1}>
-              <option plaintext>Select post category</option>
+              value={category ? category : 1}
+              onChange={(e) => setCategory(e.target.value)}>
+              <option>Select post category</option>
               {categories.map((category, index) => (
                 <option key={index} value={category}>
                   {category}
