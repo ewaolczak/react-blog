@@ -2,7 +2,14 @@ import React from 'react';
 import { Card, Button, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const postSingle = ({ title, author, publishedDate, shortDescription, id, category }) => {
+const PostSingle = ({
+  title,
+  author,
+  publishedDate,
+  shortDescription,
+  id,
+  category
+}) => {
   return (
     <Col xs='12' md='6' lg='4' className='mt-4'>
       <Card className='mt=5 h-100'>
@@ -29,4 +36,4 @@ const postSingle = ({ title, author, publishedDate, shortDescription, id, catego
   );
 };
 
-export default postSingle;
+export default PostSingle;

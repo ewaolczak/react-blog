@@ -76,9 +76,9 @@ const Post = () => {
                 <Card.Subtitle className='fw-bold mt-2'>
                   Category: <span className='fw-normal'>{post.category}</span>
                 </Card.Subtitle>
-                <Card.Text className='mt-3'>
-                  <p dangerouslySetInnerHTML={{ __html: post.content }} />
-                </Card.Text>
+                <Card.Text
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                  className='mt-3'></Card.Text>
               </Card.Body>
             </Card>
           </Col>

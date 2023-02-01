@@ -93,28 +93,29 @@ const PostForm = ({ action, actionText, ...props }) => {
                 Date can't be empty
               </small>
             )}
-            <Form.Group className='mt-3' controlId='postCategory'>
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                // aria-label='Default select example'
-                {...register('category', { required: true })}
-                as='select'
-                onChange={(e) => setCategory(e.target.value)}
-                value={category ? category : 1}>
-                <option plaintext>Select post category</option>
-                {categories.map((category, index) => (
-                  <option key={index} value={category}>
-                    {category}
-                  </option>
-                ))}
-                {categoryError && (
-                  <small className='d-block form-text text-danger mt-2'>
-                    You have to select category
-                  </small>
-                )}
-              </Form.Control>
-            </Form.Group>
           </Form.Group>
+          <Form.Group className='mt-3' controlId='postCategory'>
+            <Form.Label>Category</Form.Label>
+            <Form.Control
+              // aria-label='Default select example'
+              {...register('category', { required: true })}
+              as='select'
+              onChange={(e) => setCategory(e.target.value)}
+              value={category ? category : 1}>
+              <option plaintext>Select post category</option>
+              {categories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
+              {categoryError && (
+                <small className='d-block form-text text-danger mt-2'>
+                  You have to select category
+                </small>
+              )}
+            </Form.Control>
+          </Form.Group>
+
           <Form.Group className='mb-3' controlId='postShortDescription'>
             <Form.Label>Short Description</Form.Label>
             <Form.Control

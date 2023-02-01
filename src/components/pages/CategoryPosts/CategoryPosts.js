@@ -3,10 +3,10 @@ import { Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getPostByCategory } from '../../../redux/categoryRedux';
-import PostSingle from '../Post/Post';
+import PostSingle from '../../features/PostSingle/PostSingle';
 
 const CategoryPosts = () => {
-  const { category } = useParams;
+  const { category } = useParams();
   const postsByCategory = useSelector((state) =>
     getPostByCategory(state, category)
   );
